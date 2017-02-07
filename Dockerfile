@@ -31,5 +31,9 @@ RUN a2enmod rewrite
 # Run composer Install
 RUN composer install --no-dev -o
 
+# Set some permissions
+RUN chmod -R 777 /var/www/html/bootstrap/
+RUN rm -rf /var/www/html/bootstrap/cache/*
+
 EXPOSE 80
 CMD ["apache2-foreground"]
