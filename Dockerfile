@@ -5,7 +5,7 @@ MAINTAINER DACRepair@gmail.com
 RUN apt-get update
 
 # Install GIT
-RUN apt-get -y install git
+RUN apt-get -y install git unzip
 
 # Install GD
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng12-dev
@@ -25,7 +25,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install Cachet
 RUN git clone https://github.com/cachethq/Cachet.git /var/www/html
 
+# Enable Rewrite
 RUN a2enmod rewrite
+
+# Run composer Install
+RUN composer install --no-dev -o
 
 EXPOSE 80
 CMD ["apache2-foreground"]
