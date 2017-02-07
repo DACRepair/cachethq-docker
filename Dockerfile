@@ -25,5 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install Cachet
 RUN git clone https://github.com/cachethq/Cachet.git /var/www/html
 
+RUN a2enmod rewrite
+
 EXPOSE 80
 CMD ["apache2-foreground"]
