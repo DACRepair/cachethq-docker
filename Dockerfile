@@ -31,8 +31,8 @@ RUN a2enmod rewrite
 RUN a2dissite 000-default
 
 RUN echo "<VirtualHost *:80>" >> /etc/apache2/sites-enabled/cachet.conf
-RUN echo "DocumentRoot /var/www/html" >> /etc/apache2/sites-enabled/cachet.conf
-RUN echo "<Directory /var/www/html>" >> /etc/apache2/sites-enabled/cachet.conf
+RUN echo "DocumentRoot /var/www/html/public" >> /etc/apache2/sites-enabled/cachet.conf
+RUN echo "<Directory /var/www/html/public>" >> /etc/apache2/sites-enabled/cachet.conf
 RUN echo "Require all granted" >> /etc/apache2/sites-enabled/cachet.conf
 RUN echo "Options Indexes FollowSymLinks" >> /etc/apache2/sites-enabled/cachet.conf
 RUN echo "AllowOverride All" >> /etc/apache2/sites-enabled/cachet.conf
