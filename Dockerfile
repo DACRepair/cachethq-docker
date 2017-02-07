@@ -5,7 +5,7 @@ MAINTAINER DACRepair@gmail.com
 RUN apt-get update
 
 # Install GIT
-RUN apt-get -y install git unzip
+RUN apt-get -y install git unzip sqlite
 
 # Install GD
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng12-dev
@@ -17,7 +17,7 @@ RUN pecl install apcu
 RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
 
 # Install MySQLi
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo_sqlite
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
