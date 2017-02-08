@@ -41,8 +41,6 @@ RUN echo "Allow from all" >> /etc/apache2/sites-enabled/cachet.conf
 RUN echo "</Directory>" >> /etc/apache2/sites-enabled/cachet.conf
 RUN echo "</VirtualHost>" >> /etc/apache2/sites-enabled/cachet.conf
 
-RUN a2ensite cachet
-
 # Run composer Install
 RUN composer install --no-dev -o
 
